@@ -17,6 +17,6 @@ public interface VisitorMapper {
 
     List<Visitors> selectAll();
 
-    @Update({"update ", TABLE_NAME, " set num = #{readDataSetLength}"})
-    void setNum(@Param("readDataSetLength") int readDataSetLength);
+    @Update({"update ", TABLE_NAME, " set num = #{num}"})
+    void setNum(@Param("num") int num);
 }
