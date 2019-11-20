@@ -56,35 +56,19 @@ public class RFIDUtils implements GetReadData {
                     //handler.BeginInv(new RFIDUtils());
                     handler.InvOnce(new RFIDUtils());
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(2000);
                         visitorMapper.setNum(num);
                         //handler.StopInv();
-                        num = 0;
                     } catch (InterruptedException e) {
                         Logger.getLogger(RFIDUtils.class.getName()).log(Level.SEVERE, null, e);
                     } finally {
-                        //stop();
-                        stopThread stopThread = new stopThread();
-                        stopThread.start();
-                        //System.exit(0);
+                        num = 0;
                     }
                 }
             }
         }
     }
 
-    public static class stopThread extends Thread{
-        @Override
-        public void run() {
-                MainHandler handler2 = new MainHandler();
-                if (handler2.dllInit("R2k.dll")) {
-                    if (handler2.deviceInit(ip, 0, port)) {
-                        handler2.deviceDisconnect();
-                    }
-                    System.out.println("天线断开");
-                }
-            }
-        }
 
 
    /* private void stop() throws RFIDException {
