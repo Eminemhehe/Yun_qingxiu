@@ -12,6 +12,7 @@
     <artifactId>demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>demo</name>
+    <packaging>war</packaging>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -19,6 +20,13 @@
     </properties>
 
     <dependencies>
+       <!--打成war包是需要将自带的tomcat容器屏蔽-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jdbc</artifactId>
@@ -60,6 +68,20 @@
             <version>1.16.20</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.rfid.jl</groupId>
+            <artifactId>rfid</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/libs/jlrfid.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.rfid.jna</groupId>
+            <artifactId>rfid-jna</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/libs/jna-3.5.1.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>
@@ -68,7 +90,23 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <directory>${project.basedir}/src/main/resources/libs</directory>
+                            <targetPath>WEB-INF/lib/</targetPath>
+                            <includes>
+                                <include>**/*.jar</include>
+                            </includes>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
         </plugins>
+
         <resources>
             <resource>
                 <directory>src/main/java</directory>
