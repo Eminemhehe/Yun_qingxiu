@@ -15,8 +15,8 @@ public interface VisitorMapper {
 
     String TABLE_NAME = "visitor_copy";
 
-    List<Visitors> selectAll();
-
     @Update({"update ", TABLE_NAME, " set num = #{num}"})
     void setNum(@Param("num") int num);
+
+    List<Visitors> selectAll();
 }

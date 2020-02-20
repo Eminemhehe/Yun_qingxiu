@@ -10,5 +10,7 @@ import java.util.List;
  */
 @Service
 public interface VisitorService {
+
     List<Visitors> getVisitors();
+
 }

@@ -1,5 +1,4 @@
 package com.qiingxiu.demo.Service.Imp;
-
 import com.qiingxiu.demo.Bean.Visitors;
 import com.qiingxiu.demo.Mapper.VisitorMapper;
 import com.qiingxiu.demo.Service.VisitorService;
@@ -13,6 +12,7 @@ import java.util.List;
  */
 @Service
 public class VisitorServiceImp implements VisitorService {
+
 
     @Autowired
     VisitorMapper visitorMapper;
