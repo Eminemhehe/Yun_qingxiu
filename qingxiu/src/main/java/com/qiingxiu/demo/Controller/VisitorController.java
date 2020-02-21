@@ -39,6 +39,7 @@ public class VisitorController {
     public void BeginInv() throws RFIDException {
         RfidstartService.OnceBegin();
         System.out.println("sssss");
+         System.out.println("cccc");
         return ;
     }
 
