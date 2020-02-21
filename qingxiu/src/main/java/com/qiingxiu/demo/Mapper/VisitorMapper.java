@@ -12,7 +12,7 @@ import java.util.List;
  */
 @Mapper
 public interface VisitorMapper {
-
+    //数据库名称
     String TABLE_NAME = "visitor_copy";
 
     @Update({"update ", TABLE_NAME, " set num = #{num}"})
