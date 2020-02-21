@@ -35,10 +35,10 @@ public class VisitorController {
     @Autowired
     RfidstartService RfidstartService;
     @RequestMapping("BeginInv")
-    //rfid启动
+    //rfid启动标值
     public void BeginInv() throws RFIDException {
         RfidstartService.OnceBegin();
-        System.out.println("bbbb");
+        System.out.println("sssss");
         return ;
     }
 
