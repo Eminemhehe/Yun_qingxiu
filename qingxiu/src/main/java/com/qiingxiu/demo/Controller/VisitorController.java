@@ -37,6 +37,7 @@ public class VisitorController {
     @RequestMapping("BeginInv")
     public void BeginInv() throws RFIDException {
         RfidstartService.OnceBegin();
+        System.out.println("bbbb");
         return ;
     }
 
